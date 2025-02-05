@@ -1,0 +1,19 @@
+{
+        "name":"python",
+        "version":"3.12.5",
+        "dependencies":["bash","binutils","coreutils","expat","gcc","gdbm","gettext","glibc","grep","libffi","libxcrypt","make","ncurses","openssl","pkgconf","sed","util-linux"],
+        "license":"PSF",
+        "descriptions":"The Python 3 package contains the Python development environment. It is useful for object-oriented programming, writing scripts, prototyping large programs, and developing entire applications. Python is an interpreted computer language. ",
+        "Maintainer":"gaowool",
+        "src_url":"https://www.python.org/ftp/python/3.12.5/Python-3.12.5.tar.xz",
+        "src":"Python-3.12.5.tar.xz",
+        "hash":"md5 02c7d269e077f4034963bba6befdc715",
+        "pre":["tar -xf $SRC --strip-components=1 -C"],
+        "Configuration":["./configure --prefix=/usr --enable-shared --with-system-expat --enable-optimizations"],
+        "make":["make"],
+        "install":["make install DESTDIR=$DESTDIR"],
+        "post":["echo '[global]' >> /etc/pip.conf",
+        "echo 'root-user-action = ignore'>> /etc/pip.conf",
+        "echo 'disable-pip-version-check = true' >> /etc/pip.conf"
+        ]
+}
